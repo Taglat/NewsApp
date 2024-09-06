@@ -8,7 +8,7 @@ const Categories = ({ categories, setSelectedCategory, selectedCategory }) => {
           <button
             onClick={() => setSelectedCategory(category)}
             className={
-              setSelectedCategory === category ? styles.active : styles.item
+              selectedCategory === category ? styles.active : styles.item
             }
             key={category}
           >

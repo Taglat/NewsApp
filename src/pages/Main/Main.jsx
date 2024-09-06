@@ -13,6 +13,8 @@ const Main = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const totalPages = 10;
+  const pageSize = 10;
 
   const fetchNews = async (currentPage) => {
     try {
@@ -21,9 +23,8 @@ const Main = () => {
         page_number: currentPage, 
         page_size: pageSize, 
         category: selectedCategory === 'All' ? null : selectedCategory});
-
-      setNews(response.news);
-      setIsLoading(false);
+        setNews(response.news);
+        setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
