@@ -13,9 +13,6 @@ const Main = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const totalPages = 10;
-  const pageSize = 10;
-
 
   const fetchNews = async (currentPage) => {
     try {
@@ -24,6 +21,7 @@ const Main = () => {
         page_number: currentPage, 
         page_size: pageSize, 
         category: selectedCategory === 'All' ? null : selectedCategory});
+
       setNews(response.news);
       setIsLoading(false);
     } catch (error) {
@@ -49,7 +47,6 @@ const Main = () => {
     fetchCategories();
   }, []);
 
-
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -70,8 +67,21 @@ const Main = () => {
     <main className={styles.main}>
       <Categories categories={categories} setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} />
       {news.length > 0 && !isLoading ? <NewsBanner item={news[0]} /> : <Skeleton count={1} type="banner" />}
-
+      <Pagination 
+        totalPages={totalPages} 
+        handleNextPage={handleNextPage} 
+        handlePreviousPage={handlePreviousPage} 
+        handlePageClick={handlePageClick} 
+        currentPage={currentPage} 
+      />
       {!isLoading ? <NewsList news={news} /> : <Skeleton count={10} type="item" />}
+      <Pagination 
+        totalPages={totalPages} 
+        handleNextPage={handleNextPage} 
+        handlePreviousPage={handlePreviousPage} 
+        handlePageClick={handlePageClick} 
+        currentPage={currentPage} 
+      />
     </main>
   );
 };
