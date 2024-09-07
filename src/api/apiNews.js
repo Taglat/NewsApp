@@ -6,7 +6,6 @@ const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const getNews = async ({page_number = 1, page_size = 10, category, keywords}) => {
   try {
-
     const response = await axios.get(`${BASE_URL}search`, {
       params: {
         apiKey: API_KEY,
@@ -24,13 +23,9 @@ export const getNews = async ({page_number = 1, page_size = 10, category, keywor
 
 export const getCategories = async () => {
   try {
-
     const response = await axios.get(`${BASE_URL}available/categories`, {
       params: {
         apiKey: API_KEY,
-        page_number,
-        page_size,
-        category
       },
     });
     return response.data;
