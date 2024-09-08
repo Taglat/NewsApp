@@ -1,15 +1,17 @@
 import Header from "./components/Header/Header";
 import Main from "./pages/Main/Main";
+import { useTheme } from "./context/ThemeContext";
 
 function App() {
-  console.log(import.meta.env.VITE_NEWS_BASE_API_URL);
+  const { isDark } = useTheme();
+
   return (
-    <>
+    <div className={`app ${isDark ? "dark" : "light"}`}>
       <Header />
       <div className="container">
         <Main />
       </div>
-    </>
+    </div>
   );
 }
 
