@@ -1,11 +1,11 @@
-import { getNews } from "../../api/apiNews";
-import { PAGE_SIZE, TOTAL_PAGES } from "../../constants/constants";
-import { useDebounce } from "../../helpers/hooks/useDebounce";
-import { useFetch } from "../../helpers/hooks/useFetch";
-import { useFilters } from "../../helpers/hooks/useFilters";
-import NewsFilters from "../NewsFilters/NewsFilters";
-import NewsList from "../NewsList/NewsList";
-import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
+import { getNews } from "../../api/apiNews.ts";
+import { PAGE_SIZE, TOTAL_PAGES } from "../../constants/constants.js";
+import { useDebounce } from "../../helpers/hooks/useDebounce.js";
+import { useFetch } from "../../helpers/hooks/useFetch.js";
+import { useFilters } from "../../helpers/hooks/useFilters.js";
+import NewsFilters from "../NewsFilters/NewsFilters.jsx";
+import NewsList from "../NewsList/NewsList.jsx";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.jsx";
 import styles from "./styles.module.css";
 
 const NewsByFilters = () => {

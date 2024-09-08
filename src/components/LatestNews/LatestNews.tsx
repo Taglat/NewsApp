@@ -1,6 +1,6 @@
-import { getLatestNews } from "../../api/apiNews";
-import { useFetch } from "../../helpers/hooks/useFetch";
-import BannersList from "../BannersList/BannersList";
+import { getLatestNews } from "../../api/apiNews.ts";
+import { useFetch } from "../../helpers/hooks/useFetch.js";
+import BannersList from "../BannersList/BannersList.tsx";
 import styles from "./styles.module.css";
 
 const LatestNews = () => {
